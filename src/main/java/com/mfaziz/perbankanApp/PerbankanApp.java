@@ -2,6 +2,7 @@ package com.mfaziz.perbankanApp;
 
 import com.mfaziz.perbankanApp.View.LoginView;
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+import com.mfaziz.perbankanApp.View.AdminHomeView;
 import com.mfaziz.perbankanApp.View.AmbilView;
 import com.mfaziz.perbankanApp.View.HomeView;
 import com.mfaziz.perbankanApp.View.RegisterView;
@@ -38,6 +39,13 @@ public class PerbankanApp {
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setSize(350, 470);
         app.setVisible(true);
+        app.setResizable(false);
+        app.setLocationRelativeTo(null);
+    }
+    
+    public void showAdminHomeView() {
+        changeView(new AdminHomeView(this));
+        app.setSize(800, 500);
     }
     
     public void showLoginView() {
@@ -75,5 +83,6 @@ public class PerbankanApp {
         app.getContentPane().add(view);
         app.revalidate();
         app.repaint();
+        app.setLocationRelativeTo(null);
     }
 }

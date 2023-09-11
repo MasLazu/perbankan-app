@@ -179,7 +179,17 @@ public class LoginView extends javax.swing.JPanel {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         String namaAwal = this.namaAwal.getText();
         String namaAkhir = this.namaAkhir.getText();
+        
         if (!(namaAwal.equals("") || namaAkhir.equals(""))) {
+            
+            if (
+                    this.app.bank.getAdminNamaAwal().equals(namaAwal) && 
+                    this.app.bank.getAdminNamaAwal().equals(namaAkhir)
+                ) {
+                this.app.showAdminHomeView();
+                return;
+            }
+            
             try {
                 this.app.CurrentUser = this.app.bank.getIndexNasabah(namaAwal, namaAkhir);
                 this.app.showHomeView();
