@@ -1,7 +1,7 @@
 package com.mfaziz.perbankanApp.View;
 
 import com.mfaziz.perbankanApp.PerbankanApp;
-import com.mfaziz.perbankanApp.entity.Bank;
+import javax.swing.JOptionPane;
 
 public class LoginView extends javax.swing.JPanel {
     private PerbankanApp app;
@@ -23,9 +23,9 @@ public class LoginView extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         namaAwal = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelRegister = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(300, 400));
@@ -91,30 +91,30 @@ public class LoginView extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jButton2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jButton2.setText("Login");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnLogin.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnLoginMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
-        jLabel4.setText("Don't have and account?");
+        jLabel4.setText("Don't have an account?");
         jLabel4.setToolTipText("");
 
-        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        jLabel5.setText("Register");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelRegister.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        labelRegister.setText("Register");
+        labelRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                labelRegisterMouseClicked(evt);
             }
         });
 
@@ -128,7 +128,7 @@ public class LoginView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
@@ -143,8 +143,8 @@ public class LoginView extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addComponent(labelRegister)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,47 +157,47 @@ public class LoginView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(labelRegister))
                 .addGap(20, 20, 20))
         );
 
         add(jPanel1, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void labelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRegisterMouseClicked
         this.app.showRegisterView();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_labelRegisterMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         String namaAwal = this.namaAwal.getText();
         String namaAkhir = this.namaAkhir.getText();
         
         if (!(namaAwal.equals("") || namaAkhir.equals(""))) {
             
             if (
-                    this.app.bank.getAdminNamaAwal().equals(namaAwal) && 
-                    this.app.bank.getAdminNamaAwal().equals(namaAkhir)
+                    app.getBank().getAdminNamaAwal().equals(namaAwal) && 
+                    app.getBank().getAdminNamaAwal().equals(namaAkhir)
                 ) {
-                this.app.showAdminHomeView();
+                app.showAdminHomeView();
                 return;
             }
             
             try {
-                this.app.CurrentUser = this.app.bank.getIndexNasabah(namaAwal, namaAkhir);
-                this.app.showHomeView();
+                app.currentUser = this.app.getBank().getIndexNasabah(namaAwal, namaAkhir);
+                app.showHomeView();
             } catch(Exception e) {
-                System.out.println("credential not metch");
+                JOptionPane.showMessageDialog(this, "credential not metch", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnLoginMouseClicked
 
     private void namaAwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaAwalActionPerformed
         // TODO add your handling code here:
@@ -205,16 +205,16 @@ public class LoginView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel labelRegister;
     private javax.swing.JTextField namaAkhir;
     private javax.swing.JTextField namaAwal;
     // End of variables declaration//GEN-END:variables

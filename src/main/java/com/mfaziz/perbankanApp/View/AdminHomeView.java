@@ -4,6 +4,7 @@ import com.mfaziz.perbankanApp.PerbankanApp;
 import com.mfaziz.perbankanApp.entity.Nasabah;
 import com.mfaziz.perbankanApp.entity.Tabungan;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 public class AdminHomeView extends javax.swing.JPanel {
 
@@ -20,14 +21,14 @@ public class AdminHomeView extends javax.swing.JPanel {
 
         initComponents();
     }
-    
+
     private void renderTable() {
         tableContent.getDataVector().removeAllElements();
         tableContent.fireTableDataChanged();
         tableContent.setRowCount(0);
-        
-        for (int i = 0; i < this.app.bank.getJumlahNasabah(); i++) {
-            Nasabah nasabah = this.app.bank.getNasabah(i);
+
+        for (int i = 0; i < app.getBank().getJumlahNasabah(); i++) {
+            Nasabah nasabah = app.getBank().getNasabah(i);
             this.tableContent.addRow(new Object[]{
                 i + 1,
                 nasabah.getNamaAwal(),
@@ -53,7 +54,7 @@ public class AdminHomeView extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         setMaximumSize(new java.awt.Dimension(800, 500));
@@ -136,11 +137,11 @@ public class AdminHomeView extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 32)); // NOI18N
         jLabel4.setText("Admin Dashboard");
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mfazi\\Downloads\\log-out(1).png")); // NOI18N
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\mfazi\\Downloads\\log-out(1).png")); // NOI18N
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                btnLogoutMouseClicked(evt);
             }
         });
 
@@ -154,7 +155,7 @@ public class AdminHomeView extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -185,7 +186,7 @@ public class AdminHomeView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,55 +222,70 @@ public class AdminHomeView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        if (btnAdd.getText() == "Add") {
+        String namaAwal = this.namaAwal.getText();
+        String namaAkhir = this.namaAkhir.getText();
+
+        if (!namaAwal.equals("") && !namaAkhir.equals("")) {
+            if (btnAdd.getText().equals("Add")) {
+                try {
+                    int saldo = Integer.parseInt(this.saldo.getText());
+
+                    if (app.getBank().isNasabahExist(namaAwal, namaAkhir)) {
+                        JOptionPane.showMessageDialog(this, "nasabah already exist, choose another name", "Error", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    }
+                    
+                    app.getBank().tambahNasabah(namaAwal, namaAkhir, saldo);
+
+                    this.tableContent.addRow(new Object[]{
+                        app.getBank().getJumlahNasabah(),
+                        namaAwal,
+                        namaAkhir,
+                        saldo
+                    });
+
+                    this.namaAwal.setText("");
+                    this.namaAkhir.setText("");
+                    this.saldo.setText("");
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "saldo harus angka", "Error", JOptionPane.INFORMATION_MESSAGE);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Ada yang salah", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
+                return;
+            }
+
             try {
-                String namaAwal = this.namaAwal.getText();
-                String namaAkhir = this.namaAkhir.getText();
                 int saldo = Integer.parseInt(this.saldo.getText());
 
-                this.app.bank.tambahNasabah(namaAwal, namaAkhir, saldo);
-
-                this.tableContent.addRow(new Object[]{
-                    this.app.bank.getJumlahNasabah(),
-                    namaAwal,
-                    namaAkhir,
-                    saldo
-                });
-                
-                this.namaAwal.setText("");
-                this.namaAkhir.setText("");
-                this.saldo.setText("");
+                int selectedRow = this.table.getSelectedRow();
+                if (selectedRow >= 0) {
+                    if (app.getBank().isNasabahExist(namaAwal, namaAkhir) && app.getBank().getIndexNasabah(namaAwal, namaAkhir) != selectedRow) {
+                        JOptionPane.showMessageDialog(this, "nasabah already exist, choose another name", "Error", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    }
+                    
+                    app.getBank().updateNasabah(selectedRow, new Nasabah(namaAwal, namaAkhir, new Tabungan(saldo)));
+                    
+                    
+                    this.namaAwal.setText("");
+                    this.namaAkhir.setText("");
+                    this.saldo.setText("");
+                    btnAdd.setText("Add");
+                    renderTable();
+                }
             } catch (NumberFormatException e) {
-                System.out.println("saldo harus angka");
+                JOptionPane.showMessageDialog(this, "saldo harus angka", "Error", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
-                System.out.println("something went wrong");
+                JOptionPane.showMessageDialog(this, "Ada yang salah", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
-            return;
-        }
-        
-        try {
-            String namaAwal = this.namaAwal.getText();
-            String namaAkhir = this.namaAkhir.getText();
-            int saldo = Integer.parseInt(this.saldo.getText());
-
-             int selectedRow = this.table.getSelectedRow();
-            if (selectedRow >= 0) {
-                this.app.bank.updateNasabah(selectedRow, new Nasabah(namaAwal, namaAkhir, new Tabungan(saldo)));
-                this.tableContent.setValueAt(namaAwal, selectedRow, 1);
-                this.tableContent.setValueAt(namaAkhir, selectedRow, 2);
-                this.tableContent.setValueAt(saldo, selectedRow, 3);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("saldo harus angka");
-        } catch (Exception e) {
-            System.out.println("something went wrong");
         }
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         int selectedRow = this.table.getSelectedRow();
         if (selectedRow >= 0) {
-            this.app.bank.removeNasabah(selectedRow);
+            app.getBank().removeNasabah(selectedRow);
             renderTable();
         }
     }//GEN-LAST:event_btnDeleteMouseClicked
@@ -279,8 +295,9 @@ public class AdminHomeView extends javax.swing.JPanel {
     }//GEN-LAST:event_namaAwalActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        int selectedRow = this.table.getSelectedRow();
         btnAdd.setText("update");
+
+        int selectedRow = this.table.getSelectedRow();
         if (selectedRow >= 0) {
             this.namaAwal.setText(this.tableContent.getValueAt(selectedRow, 1).toString());
             this.namaAkhir.setText(this.tableContent.getValueAt(selectedRow, 2).toString());
@@ -291,7 +308,7 @@ public class AdminHomeView extends javax.swing.JPanel {
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         this.btnAdd.setText("Add");
-        
+
         int selectedRow = this.table.getSelectedRow();
         if (selectedRow >= 0) {
             this.namaAwal.setText("");
@@ -300,16 +317,16 @@ public class AdminHomeView extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCancelMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        this.app.showLoginView();
-    }//GEN-LAST:event_jButton4MouseClicked
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        app.showLoginView();
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

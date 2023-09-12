@@ -64,6 +64,15 @@ public class Bank {
         throw new Exception("not found");
     }
     
+    public boolean isNasabahExist(String namaAwal, String namaAkhir) {
+        for(Nasabah nasabah :this.nasabah) {
+            if(nasabah.getNamaAwal().equals(namaAwal) && nasabah.getNamaAkhir().equals(namaAkhir)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public String getAdminNamaAwal() {
         return adminNamaAwal;
     }

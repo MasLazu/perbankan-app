@@ -15,11 +15,8 @@ public class Tabungan {
         saldo += jumlah;
     }
     
-    public boolean ambilUang(int jumlah) {
-        if(saldo >= jumlah) {
-            saldo -= jumlah;
-            return true;
-        }
-        return false;
+    public void ambilUang(int jumlah) throws Exception {
+        if(saldo < jumlah) throw new Exception("not enough balance");
+        saldo -= jumlah;
     }
 }

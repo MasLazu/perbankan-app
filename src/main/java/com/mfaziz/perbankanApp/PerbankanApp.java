@@ -16,8 +16,8 @@ import javax.swing.UIManager;
 
 public class PerbankanApp {
     private JFrame app;
-    public Bank bank;
-    public int CurrentUser;
+    private Bank bank;
+    public int currentUser;
 
     public static void main(String[] args) {
          try {
@@ -41,6 +41,10 @@ public class PerbankanApp {
         app.setVisible(true);
         app.setResizable(false);
         app.setLocationRelativeTo(null);
+    }
+    
+    public Bank getBank() {
+        return this.bank;
     }
     
     public void showAdminHomeView() {
@@ -78,7 +82,7 @@ public class PerbankanApp {
         app.setSize(350, 450);
     }
     
-    public void changeView(JPanel view) {
+    private void changeView(JPanel view) {
         app.getContentPane().removeAll();
         app.getContentPane().add(view);
         app.revalidate();

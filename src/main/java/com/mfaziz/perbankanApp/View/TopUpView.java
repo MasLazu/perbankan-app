@@ -1,6 +1,7 @@
 package com.mfaziz.perbankanApp.View;
 
 import com.mfaziz.perbankanApp.PerbankanApp;
+import javax.swing.JOptionPane;
 
 public class TopUpView extends javax.swing.JPanel {
     private PerbankanApp app; 
@@ -16,24 +17,24 @@ public class TopUpView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jumlah = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnTopup = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(300, 500));
         setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 300));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mfazi\\Downloads\\skip-back.png")); // NOI18N
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\mfazi\\Downloads\\skip-back.png")); // NOI18N
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnBackMouseClicked(evt);
             }
         });
 
@@ -46,7 +47,7 @@ public class TopUpView extends javax.swing.JPanel {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addContainerGap())
@@ -57,7 +58,7 @@ public class TopUpView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -93,14 +94,14 @@ public class TopUpView extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 0));
-        jButton2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Top Up");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTopup.setBackground(new java.awt.Color(0, 204, 0));
+        btnTopup.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnTopup.setForeground(new java.awt.Color(255, 255, 255));
+        btnTopup.setText("Top Up");
+        btnTopup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTopup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnTopupMouseClicked(evt);
             }
         });
 
@@ -110,14 +111,14 @@ public class TopUpView extends javax.swing.JPanel {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTopup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTopup, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -152,24 +153,24 @@ public class TopUpView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jumlahActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        this.app.showHomeView();
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        app.showHomeView();
+    }//GEN-LAST:event_btnBackMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnTopupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTopupMouseClicked
         try {
             int jumlah = Integer.parseInt(this.jumlah.getText());
-            this.app.bank.getNasabah(this.app.CurrentUser).getTabungan().simpanUang(jumlah);
-            this.app.showHomeView();
+            app.getBank().getNasabah(app.currentUser).getTabungan().simpanUang(jumlah);
+            app.showHomeView();
         } catch(Exception e) {
-            System.out.println("nominal tidak valid");
+            JOptionPane.showMessageDialog(this, "nominal tidak valid", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnTopupMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnTopup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
