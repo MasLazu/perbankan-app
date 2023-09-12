@@ -83,6 +83,5 @@ public class PerbankanApp {
         app.getContentPane().add(view);
         app.revalidate();
         app.repaint();
-        app.setLocationRelativeTo(null);
     }
 }

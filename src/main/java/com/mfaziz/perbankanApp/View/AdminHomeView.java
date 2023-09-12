@@ -9,42 +9,49 @@ public class AdminHomeView extends javax.swing.JPanel {
 
     private PerbankanApp app;
     private DefaultTableModel tableContent;
-    private int selectedRow;
-    
+
     public AdminHomeView(PerbankanApp app) {
         this.app = app;
         this.tableContent = new DefaultTableModel(new Object[][]{}, new String[]{
             "No", "Nama Awal", "Nama Akhir", "Saldo"
         });
-        
-        for(int i=0; i<this.app.bank.getJumlahNasabah(); i++) {
-            Nasabah nasabah = this.app.bank.getNasabah(i);
-            this.tableContent.addRow(new Object[]{
-                i+1, 
-                nasabah.getNamaAwal(), 
-                nasabah.getNamaAkhir(), 
-                "Rp. " + nasabah.getTabungan().getSaldo()}
-            );
-        }
-        
+
+        renderTable();
+
         initComponents();
     }
     
+    private void renderTable() {
+        tableContent.getDataVector().removeAllElements();
+        tableContent.fireTableDataChanged();
+        tableContent.setRowCount(0);
+        
+        for (int i = 0; i < this.app.bank.getJumlahNasabah(); i++) {
+            Nasabah nasabah = this.app.bank.getNasabah(i);
+            this.tableContent.addRow(new Object[]{
+                i + 1,
+                nasabah.getNamaAwal(),
+                nasabah.getNamaAkhir(),
+                nasabah.getTabungan().getSaldo()}
+            );
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         namaAwal = new javax.swing.JTextField();
         namaAkhir = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         saldo = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -55,8 +62,6 @@ public class AdminHomeView extends javax.swing.JPanel {
 
         table.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         table.setModel(this.tableContent);
-        table.setMaximumSize(new java.awt.Dimension(0, 0));
-        table.setMinimumSize(new java.awt.Dimension(0, 0));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);
@@ -64,19 +69,19 @@ public class AdminHomeView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(table);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 255));
-        jButton1.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Update");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCancel.setBackground(new java.awt.Color(204, 204, 0));
+        btnCancel.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setText("Cancel");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnCancelMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -95,36 +100,36 @@ public class AdminHomeView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         jLabel3.setText("Saldo");
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 0));
-        jButton2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add");
-        jButton2.setToolTipText("");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd.setBackground(new java.awt.Color(0, 204, 0));
+        btnAdd.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add");
+        btnAdd.setToolTipText("");
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnAddMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Delete");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDelete.setBackground(new java.awt.Color(255, 51, 51));
+        btnDelete.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnDeleteMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -151,24 +156,27 @@ public class AdminHomeView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(namaAkhir, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
-                            .addComponent(namaAwal))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(namaAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(namaAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 154, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -182,63 +190,89 @@ public class AdminHomeView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namaAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(btnAdd))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namaAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        if (btnAdd.getText() == "Add") {
+            try {
+                String namaAwal = this.namaAwal.getText();
+                String namaAkhir = this.namaAkhir.getText();
+                int saldo = Integer.parseInt(this.saldo.getText());
+
+                this.app.bank.tambahNasabah(namaAwal, namaAkhir, saldo);
+
+                this.tableContent.addRow(new Object[]{
+                    this.app.bank.getJumlahNasabah(),
+                    namaAwal,
+                    namaAkhir,
+                    saldo
+                });
+                
+                this.namaAwal.setText("");
+                this.namaAkhir.setText("");
+                this.saldo.setText("");
+            } catch (NumberFormatException e) {
+                System.out.println("saldo harus angka");
+            } catch (Exception e) {
+                System.out.println("something went wrong");
+            }
+            return;
+        }
+        
         try {
             String namaAwal = this.namaAwal.getText();
             String namaAkhir = this.namaAkhir.getText();
             int saldo = Integer.parseInt(this.saldo.getText());
-            
-            this.app.bank.tambahNasabah(namaAwal, namaAkhir, saldo);
-            
-            this.tableContent.addRow(new Object[]{
-                this.app.bank.getJumlahNasabah(), 
-                namaAwal, 
-                namaAkhir, 
-                "Rp. " + saldo
-            });
-        } catch(NumberFormatException e) {
+
+             int selectedRow = this.table.getSelectedRow();
+            if (selectedRow >= 0) {
+                this.app.bank.updateNasabah(selectedRow, new Nasabah(namaAwal, namaAkhir, new Tabungan(saldo)));
+                this.tableContent.setValueAt(namaAwal, selectedRow, 1);
+                this.tableContent.setValueAt(namaAkhir, selectedRow, 2);
+                this.tableContent.setValueAt(saldo, selectedRow, 3);
+            }
+        } catch (NumberFormatException e) {
             System.out.println("saldo harus angka");
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("something went wrong");
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnAddMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        this.selectedRow = this.table.getSelectedRow();
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        int selectedRow = this.table.getSelectedRow();
         if (selectedRow >= 0) {
-            this.app.bank.removeNasabah(this.selectedRow);
-            this.tableContent.removeRow(this.selectedRow);
+            this.app.bank.removeNasabah(selectedRow);
+            renderTable();
         }
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
     private void namaAwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaAwalActionPerformed
         // TODO add your handling code here:
@@ -246,32 +280,25 @@ public class AdminHomeView extends javax.swing.JPanel {
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         int selectedRow = this.table.getSelectedRow();
+        btnAdd.setText("update");
         if (selectedRow >= 0) {
             this.namaAwal.setText(this.tableContent.getValueAt(selectedRow, 1).toString());
             this.namaAkhir.setText(this.tableContent.getValueAt(selectedRow, 2).toString());
             this.saldo.setText(this.tableContent.getValueAt(selectedRow, 3).toString());
         }
+
     }//GEN-LAST:event_tableMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        try {
-            String namaAwal = this.namaAwal.getText();
-            String namaAkhir = this.namaAkhir.getText();
-            int saldo = Integer.parseInt(this.saldo.getText());
-            
-            if (this.selectedRow >= 0) {
-                this.app.bank.updateNasabah(this.selectedRow, new Nasabah(namaAwal, namaAkhir, new Tabungan(saldo)));
-                this.tableContent.setValueAt(namaAwal, this.selectedRow, 1);
-                this.tableContent.setValueAt(namaAkhir, this.selectedRow, 2);
-                this.tableContent.setValueAt("Rp. " + saldo, this.selectedRow, 3);
-            }
-        } catch(NumberFormatException e) {
-            System.out.println("saldo harus angka");
-        } catch(Exception e) {
-            System.out.println("something went wrong");
-        }
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        this.btnAdd.setText("Add");
         
-    }//GEN-LAST:event_jButton1MouseClicked
+        int selectedRow = this.table.getSelectedRow();
+        if (selectedRow >= 0) {
+            this.namaAwal.setText("");
+            this.namaAkhir.setText("");
+            this.saldo.setText("");
+        }
+    }//GEN-LAST:event_btnCancelMouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         this.app.showLoginView();
@@ -279,9 +306,9 @@ public class AdminHomeView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
