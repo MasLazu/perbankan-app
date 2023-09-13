@@ -101,6 +101,12 @@ public class AdminHomeView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         jLabel3.setText("Saldo");
 
+        saldo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                saldoKeyTyped(evt);
+            }
+        });
+
         btnAdd.setBackground(new java.awt.Color(0, 204, 0));
         btnAdd.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,14 +242,8 @@ public class AdminHomeView extends javax.swing.JPanel {
                     }
                     
                     app.getBank().tambahNasabah(namaAwal, namaAkhir, saldo);
-
-                    this.tableContent.addRow(new Object[]{
-                        app.getBank().getJumlahNasabah(),
-                        namaAwal,
-                        namaAkhir,
-                        saldo
-                    });
-
+                    
+                    renderTable();
                     this.namaAwal.setText("");
                     this.namaAkhir.setText("");
                     this.saldo.setText("");
@@ -320,6 +320,11 @@ public class AdminHomeView extends javax.swing.JPanel {
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
         app.showLoginView();
     }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void saldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_saldoKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) evt.consume();
+    }//GEN-LAST:event_saldoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

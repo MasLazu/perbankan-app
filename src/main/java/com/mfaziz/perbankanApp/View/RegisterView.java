@@ -160,7 +160,7 @@ public class RegisterView extends javax.swing.JPanel {
         String namaAwal = this.namaAwal.getText();
         String namaAkhir = this.namaAkhir.getText();
         if (!(namaAwal.equals("") || namaAkhir.equals(""))) {
-            if (!app.getBank().isNasabahExist(namaAwal, namaAkhir)) {
+            if (app.getBank().isNasabahExist(namaAwal, namaAkhir)) {
                 JOptionPane.showMessageDialog(this, "nasabah already exist, choose another name", "Error", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PerbankanApp">
+  <ClassDiagramComponents>
+    <Class name="Bank" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nasabah" type="LinkedList&lt;Nasabah&gt;" visibility="private"/>
+        <Field name="adminNamaAwal" type="String" visibility="private"/>
+        <Field name="adminNamaAkhir" type="String" visibility="private"/>
+        <Field name="jumlahNasabah" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="tambahNasabah" returnType="void" visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+        </Method>
+        <Method name="tambahNasabah" returnType="void" visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+          <Argument type="int" name="saldo"/>
+        </Method>
+        <Method name="removeNasabah" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="updateNasabah" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="Nasabah" name="nasabah"/>
+        </Method>
+        <Method name="getJumlahNasabah" returnType="int" visibility="public"/>
+        <Method name="getNasabah" returnType="Nasabah" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="getIndexNasabah" returnType="int" visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+        </Method>
+        <Method name="isNasabahExist" returnType="boolean" visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+        </Method>
+        <Method name="getAdminNamaAwal" returnType="String" visibility="public"/>
+        <Method name="getAdminNamaAkhir" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Nasabah" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="namaAwal" type="String" visibility="private"/>
+        <Field name="namaAkhir" type="String" visibility="private"/>
+        <Field name="tabungan" type="Tabungan" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="namaAwal"/>
+          <Argument type="String" name="namaAkhir"/>
+          <Argument type="Tabungan" name="tabungan"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNamaAwal" returnType="String" visibility="public"/>
+        <Method name="getNamaAkhir" returnType="String" visibility="public"/>
+        <Method name="getTabungan" returnType="Tabungan" visibility="public"/>
+        <Method name="setTabungan" returnType="void" visibility="public">
+          <Argument type="Tabungan" name="tabungan"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tabungan" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="saldo" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSaldo" returnType="int" visibility="public"/>
+        <Method name="simpanUang" returnType="void" visibility="public">
+          <Argument type="int" name="jumlah"/>
+        </Method>
+        <Method name="ambilUang" returnType="void" visibility="public">
+          <Argument type="int" name="jumlah"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PerbankanApp" package="com.mfaziz.perbankanApp" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="app" type="JFrame" visibility="private"/>
+        <Field name="bank" type="Bank" visibility="private"/>
+        <Field name="currentUser" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getBank" returnType="Bank" visibility="public"/>
+        <Method name="showAdminHomeView" returnType="void" visibility="public"/>
+        <Method name="showLoginView" returnType="void" visibility="public"/>
+        <Method name="showRegisterView" returnType="void" visibility="public"/>
+        <Method name="showHomeView" returnType="void" visibility="public"/>
+        <Method name="showTopUpView" returnType="void" visibility="public"/>
+        <Method name="showAmbilView" returnType="void" visibility="public"/>
+        <Method name="showTransferView" returnType="void" visibility="public"/>
+        <Method name="changeView" returnType="void" visibility="private">
+          <Argument type="JPanel" name="view"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AdminHomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="tableContent" type="DefaultTableModel" visibility="private"/>
+        <Field name="btnAdd" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnCancel" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnDelete" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnLogout" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="namaAkhir" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="namaAwal" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="saldo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="table" type="javax.swing.JTable" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="renderTable" returnType="void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="btnCancelActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnAddActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnDeleteActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnAddMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnDeleteMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="namaAwalActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="tableMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnCancelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnLogoutMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AmbilView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnAmbil" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnBack" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel10" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel11" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel12" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jumlah" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="jumlahActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnBackMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnAmbilMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnAmbil" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnLogout" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnTopup" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnTransfer" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="nama" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="saldo" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="btnAmbilActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnTransferActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnTopupActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnLogoutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnLogoutMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnTopupMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnAmbilMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnTransferMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LoginView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnLogin" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="labelRegister" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="namaAkhir" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="namaAwal" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="btnLoginActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="labelRegisterMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnLoginMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="namaAwalActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RegisterView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnRegister" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="labelLogin" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="namaAkhir" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="namaAwal" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="btnRegisterActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="labelLoginMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TopUpView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnBack" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnTopup" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel10" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel11" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel12" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jumlah" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="jumlahActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnBackMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnTopupMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TransferView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="app" type="PerbankanApp" visibility="private"/>
+        <Field name="btnBack" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnTransfer" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel10" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel11" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel12" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel13" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel14" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jumlah" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jumlah1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jumlah2" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PerbankanApp" name="app"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="jumlahActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnBackMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnTransferMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jumlah1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnTransferActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jumlah2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.LoginView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.TransferView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nasabah" source="com.mfaziz.perbankanApp.entity.Bank" target="com.mfaziz.perbankanApp.entity.Nasabah" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Nasabah&gt;"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.AdminHomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.HomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tabungan" source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mfaziz.perbankanApp.entity.Bank" target="com.mfaziz.perbankanApp.entity.Nasabah" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.AmbilView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mfaziz.perbankanApp.PerbankanApp" target="com.mfaziz.perbankanApp.entity.Bank" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.TopUpView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bank" source="com.mfaziz.perbankanApp.PerbankanApp" target="com.mfaziz.perbankanApp.entity.Bank" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.RegisterView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

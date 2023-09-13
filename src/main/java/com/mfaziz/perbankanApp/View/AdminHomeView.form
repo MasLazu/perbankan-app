@@ -213,6 +213,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="saldo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="saldoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>

@@ -70,6 +70,11 @@ public class TopUpView extends javax.swing.JPanel {
                 jumlahActionPerformed(evt);
             }
         });
+        jumlah.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jumlahKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -166,6 +171,11 @@ public class TopUpView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "nominal tidak valid", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnTopupMouseClicked
+
+    private void jumlahKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jumlahKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) evt.consume();
+    }//GEN-LAST:event_jumlahKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
