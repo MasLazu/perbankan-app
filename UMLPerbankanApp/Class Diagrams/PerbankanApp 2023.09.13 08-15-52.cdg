@@ -2,7 +2,7 @@
 
 <ClassDiagram name="PerbankanApp">
   <ClassDiagramComponents>
-    <Class name="Bank" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Bank" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="864.0" yPosition="656.0">
       <Fields>
         <Field name="nasabah" type="LinkedList&lt;Nasabah&gt;" visibility="private"/>
         <Field name="adminNamaAwal" type="String" visibility="private"/>
@@ -43,7 +43,7 @@
         <Method name="getAdminNamaAkhir" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Nasabah" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Nasabah" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="885.0" yPosition="275.0">
       <Fields>
         <Field name="namaAwal" type="String" visibility="private"/>
         <Field name="namaAkhir" type="String" visibility="private"/>
@@ -69,7 +69,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Tabungan" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Tabungan" package="com.mfaziz.perbankanApp.entity" visibility="public" xPosition="1467.0" yPosition="320.0">
       <Fields>
         <Field name="saldo" type="int" visibility="private"/>
       </Fields>
@@ -88,7 +88,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="PerbankanApp" package="com.mfaziz.perbankanApp" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="PerbankanApp" package="com.mfaziz.perbankanApp" visibility="public" xPosition="2010.0" yPosition="1277.0">
       <Fields>
         <Field name="app" type="JFrame" visibility="private"/>
         <Field name="bank" type="Bank" visibility="private"/>
@@ -114,7 +114,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="AdminHomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Class name="AdminHomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1767.0" yPosition="275.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="tableContent" type="DefaultTableModel" visibility="private"/>
@@ -139,8 +139,7 @@
       </Constructors>
       <Methods>
         <Method name="renderTable" returnType="void" visibility="private"/>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="btnCancelActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -170,7 +169,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="AmbilView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1520.0" yPosition="20.0">
+    <Class name="AmbilView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="2456.0" yPosition="469.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnAmbil" type="javax.swing.JButton" visibility="private"/>
@@ -189,8 +188,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="jumlahActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -202,7 +200,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="HomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1820.0" yPosition="20.0">
+    <Class name="HomeView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="2530.0" yPosition="1116.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnAmbil" type="javax.swing.JButton" visibility="private"/>
@@ -226,8 +224,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="btnAmbilActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -254,7 +251,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="LoginView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="2120.0" yPosition="20.0">
+    <Class name="LoginView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="2303.0" yPosition="1779.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnLogin" type="javax.swing.JButton" visibility="private"/>
@@ -276,8 +273,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="btnLoginActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -292,7 +288,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="RegisterView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="20.0" yPosition="420.0">
+    <Class name="RegisterView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="812.0" yPosition="1059.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnRegister" type="javax.swing.JButton" visibility="private"/>
@@ -314,8 +310,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="btnRegisterActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -324,7 +319,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="TopUpView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="320.0" yPosition="420.0">
+    <Class name="TopUpView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="842.0" yPosition="1515.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnBack" type="javax.swing.JButton" visibility="private"/>
@@ -343,8 +338,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="jumlahActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -356,7 +350,7 @@ void" visibility="private"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="TransferView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="620.0" yPosition="420.0">
+    <Class name="TransferView" package="com.mfaziz.perbankanApp.View" visibility="public" xPosition="1562.0" yPosition="1760.0">
       <Fields>
         <Field name="app" type="PerbankanApp" visibility="private"/>
         <Field name="btnBack" type="javax.swing.JButton" visibility="private"/>
@@ -381,8 +375,7 @@ void" visibility="private"/>
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
-void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
         <Method name="jumlahActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -405,18 +398,18 @@ void" visibility="private"/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.LoginView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.TopUpView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="app" source="com.mfaziz.perbankanApp.View.TransferView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="nasabah" source="com.mfaziz.perbankanApp.entity.Bank" target="com.mfaziz.perbankanApp.entity.Nasabah" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Nasabah&gt;"/>
-    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.AdminHomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.HomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="tabungan" source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="com.mfaziz.perbankanApp.entity.Bank" target="com.mfaziz.perbankanApp.entity.Nasabah" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.RegisterView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nasabah" source="com.mfaziz.perbankanApp.entity.Bank" target="com.mfaziz.perbankanApp.entity.Nasabah" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Nasabah&gt;"/>
+    <UseRelation source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.AdminHomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="app" source="com.mfaziz.perbankanApp.View.AmbilView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="com.mfaziz.perbankanApp.PerbankanApp" target="com.mfaziz.perbankanApp.entity.Bank" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.TopUpView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.HomeView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tabungan" source="com.mfaziz.perbankanApp.entity.Nasabah" target="com.mfaziz.perbankanApp.entity.Tabungan" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.LoginView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="bank" source="com.mfaziz.perbankanApp.PerbankanApp" target="com.mfaziz.perbankanApp.entity.Bank" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="app" source="com.mfaziz.perbankanApp.View.RegisterView" target="com.mfaziz.perbankanApp.PerbankanApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

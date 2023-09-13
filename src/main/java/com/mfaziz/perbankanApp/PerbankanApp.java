@@ -20,8 +20,8 @@ public class PerbankanApp {
     public int currentUser;
 
     public static void main(String[] args) {
-         try {
-            UIManager.setLookAndFeel(new FlatNordIJTheme()); // Use FlatDarculaLaf as an example
+        try {
+            UIManager.setLookAndFeel(new FlatNordIJTheme());
         } catch (Exception e) {
             e.printStackTrace();
         }
