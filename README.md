@@ -1,3 +1,3 @@
 # Class Diagram
 
-<img src="PerbankanAppClassDiagram.drawio.png">
+<img src="PerbankanAppClassDiagram.png">
